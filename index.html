@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAT Genset PTD Price List — PT Trakindo Utama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow:   #FFC300;
+      --yellow-dk:#E6AF00;
+      --black:    #1A1A1A;
+      --black-2:  #2B2B2B;
+      --gray-dk:  #4A4A4A;
+      --gray-md:  #767676;
+      --gray-lt:  #D6D6D6;
+      --gray-bg:  #F4F4F4;
+      --white:    #FFFFFF;
+      --font:     'Barlow', Arial, sans-serif;
+      --font-cond:'Barlow Condensed', Arial Narrow, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══════════════════════════════════════
+       TOP UTILITY BAR
+    ══════════════════════════════════════ */
+    .top-bar {
+      background: var(--black);
+      padding: 0 40px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .top-bar a, .top-bar span {
+      font-size: 11px;
+      color: var(--gray-lt);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .top-bar-divider {
+      width: 1px;
+      height: 12px;
+      background: var(--gray-dk);
+    }
+
+
+    /* ══════════════════════════════════════
+       MAIN HEADER
+    ══════════════════════════════════════ */
+    .site-header {
+      background: var(--black);
+      padding: 0 40px;
+      border-bottom: 3px solid var(--yellow);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .trakindo-logo {
+      height: 48px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+    .header-date-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+    .date-label {
+      font-size: 9px;
+      color: var(--gray-md);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .date-value {
+      font-family: var(--font-cond);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      cursor: default;
+    }
+
+    /* ══════════════════════════════════════
+       HERO BAND
+    ══════════════════════════════════════ */
+    .hero-band {
+      background: var(--black-2);
+      padding: 28px 40px;
+      border-bottom: 1px solid #333;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-left {}
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-title {
+      font-family: var(--font-cond);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--gray-md);
+      margin-top: 6px;
+      letter-spacing: 0.3px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+    }
+    .stat-item {
+      text-align: right;
+    }
+    .stat-number {
+      font-family: var(--font-cond);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--yellow);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 10px;
+      color: var(--gray-md);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ══════════════════════════════════════
+       MAIN CONTENT
+    ══════════════════════════════════════ */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 40px 64px;
+    }
+
+    /* ── PRICE TYPE TABS ── */
+    .price-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      border-bottom: 2px solid var(--gray-lt);
+    }
+    .price-tab {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      cursor: pointer;
+      color: var(--gray-md);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+      user-select: none;
+    }
+    .price-tab.active {
+      color: var(--black);
+      border-bottom-color: var(--yellow);
+    }
+    .price-tab:hover:not(.active) {
+      color: var(--black);
+    }
+
+    /* ── TABLE ── */
+    .table-outer {
+      margin-top: 0;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    thead tr {
+      background: var(--black);
+    }
+    thead th {
+      font-family: var(--font-cond);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      padding: 14px 20px;
+      white-space: nowrap;
+      border-right: 1px solid #333;
+    }
+    thead th:last-child { border-right: none; }
+    thead th.align-right { text-align: right; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--gray-lt);
+      transition: background 0.12s;
+    }
+    tbody tr:nth-child(even) { background: var(--gray-bg); }
+    tbody tr:hover { background: #FFFBEC; }
+
+    td {
+      padding: 18px 20px;
+      vertical-align: middle;
+    }
+    td.align-right { text-align: right; }
+
+    /* Model cell */
+    .cell-model {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .model-info {}
+    .model-name {
+      font-family: var(--font-cond);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+    .model-id {
+      font-size: 10px;
+      color: var(--gray-md);
+      margin-top: 3px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Spec cell */
+    .cell-spec {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+    .spec-kw {
+      background: var(--yellow);
+      color: var(--black);
+      font-family: var(--font-cond);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 10px;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .spec-detail {
+      font-size: 12px;
+      color: var(--gray-dk);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    /* Price cell */
+    .price-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1px;
+    }
+    .price-currency {
+      font-size: 10px;
+      color: var(--gray-md);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .price-value {
+      font-family: var(--font-cond);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.3px;
+      line-height: 1;
+    }
+    .price-value.is-highlighted {
+      color: var(--black);
+    }
+    td.col-active .price-value {
+      color: var(--black);
+    }
+    td.col-active {
+      background: rgba(255, 195, 0, 0.07);
+    }
+    tbody tr:hover td.col-active {
+      background: rgba(255, 195, 0, 0.14);
+    }
+
+    /* Active column indicator in header */
+    thead th.col-active-header {
+      background: var(--yellow);
+      color: var(--black);
+      border-right: 1px solid rgba(0,0,0,0.15);
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      background: var(--black);
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-note {
+      font-size: 11px;
+      color: var(--gray-md);
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-trakindo-logo {
+      height: 30px;
+      width: auto;
+      display: block;
+    }
+    .footer-slogan {
+      font-family: var(--font-cond);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-lt);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .footer-slogan span { color: var(--yellow); }
+
+    /* ── EDIT BANNER ── */
+    .edit-banner {
+      background: #111;
+      border-bottom: 2px solid var(--yellow);
+      padding: 10px 40px;
+      display: none;
+      align-items: center;
+      gap: 14px;
+    }
+    .edit-banner.visible { display: flex; }
+    .edit-banner p {
+      font-size: 12px;
+      color: var(--gray-lt);
+      flex: 1;
+    }
+    .edit-banner strong { color: var(--yellow); }
+    .btn-save {
+      background: var(--yellow);
+      border: none;
+      padding: 8px 20px;
+      font-family: var(--font-cond);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .btn-cancel {
+      background: transparent;
+      border: 1px solid var(--gray-dk);
+      color: var(--gray-lt);
+      padding: 8px 14px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* ══════════════════════════════════════
+       PASSWORD GATE
+    ══════════════════════════════════════ */
+    #passwordGate {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gate-box {
+      width: 100%;
+      max-width: 400px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .gate-logo {
+      height: 52px;
+      width: auto;
+      margin-bottom: 32px;
+    }
+    .gate-title {
+      font-family: var(--font-cond);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .gate-subtitle {
+      font-size: 12px;
+      color: var(--gray-md);
+      text-align: center;
+      letter-spacing: 0.5px;
+      margin-bottom: 32px;
+    }
+    .gate-input-wrap {
+      width: 100%;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .gate-input {
+      width: 100%;
+      background: #2A2A2A;
+      border: 1px solid #3A3A3A;
+      border-top: 3px solid var(--yellow);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      padding: 14px 48px 14px 16px;
+      outline: none;
+      letter-spacing: 2px;
+    }
+    .gate-input:focus {
+      border-color: var(--yellow);
+      background: #2F2F2F;
+    }
+    .gate-input::placeholder {
+      color: var(--gray-dk);
+      letter-spacing: 0.5px;
+      font-size: 13px;
+    }
+    .gate-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-md);
+      font-size: 14px;
+      padding: 4px;
+      line-height: 1;
+    }
+    .gate-toggle:hover { color: var(--white); }
+    .gate-btn {
+      width: 100%;
+      background: var(--yellow);
+      border: none;
+      padding: 14px;
+      font-family: var(--font-cond);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-bottom: 14px;
+    }
+    .gate-btn:hover { background: var(--yellow-dk); }
+    .gate-error {
+      font-size: 12px;
+      color: #FF5A5A;
+      letter-spacing: 0.5px;
+      text-align: center;
+      height: 18px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .gate-error.visible { opacity: 1; }
+
+    /* hide main content while locked */
+    body.locked > *:not(#passwordGate) { visibility: hidden; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .top-bar, .site-header, .hero-band { padding-left: 20px; padding-right: 20px; }
+      .main-content { padding: 24px 20px 48px; }
+      .hero-stats { display: none; }
+      .hero-title { font-size: 26px; }
+      .brand-slogan { font-size: 15px; }
+      td, th { padding: 12px 12px; }
+      .model-icon { display: none; }
+      .page-footer { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PASSWORD GATE -->
+  <div id="passwordGate">
+    <div class="gate-box">
+      <img src="Trakindo_Logo.png" alt="Trakindo CAT" class="gate-logo" />
+      <div class="gate-title">Restricted Access</div>
+      <div class="gate-subtitle">Power System Sales · Internal Price List</div>
+      <div class="gate-input-wrap">
+        <input
+          class="gate-input"
+          id="gateInput"
+          type="password"
+          placeholder="Enter password"
+          autocomplete="off"
+          onkeydown="if(event.key==='Enter') checkPassword()"
+        />
+        <button class="gate-toggle" onclick="togglePwVisibility()" title="Show/hide password" id="toggleBtn">👁</button>
+      </div>
+      <button class="gate-btn" onclick="checkPassword()">ENTER</button>
+      <div class="gate-error" id="gateError">Incorrect password. Access denied.</div>
+    </div>
+  </div>
+
+  <!-- EDIT BANNER -->
+  <div class="edit-banner" id="editBanner">
+    <p>✏️ <strong>Edit Mode</strong> — Klik harga untuk mengubah nilai, lalu klik <strong>Simpan</strong>.</p>
+    <button class="btn-save" onclick="saveEdits()">SIMPAN</button>
+    <button class="btn-cancel" onclick="exitEdit()">Batal</button>
+  </div>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span>PT Trakindo Utama</span>
+      <div class="top-bar-divider"></div>
+      <span>Power System Sales</span>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <img src="Trakindo_Logo.png" alt="Trakindo CAT" class="trakindo-logo" />
+      </div>
+      <div class="header-date-pill">
+        <span class="date-label">Pricing Date</span>
+        <span class="date-value" id="pricingDate">03 June 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BAND -->
+  <div class="hero-band">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow">CAT Diesel Generator Set</div>
+        <div class="hero-title">PTD Model — Selling Price</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAIN TABLE -->
+  <div class="main-content">
+
+    <div class="price-tabs" id="priceTabs">
+      <div class="price-tab active" data-col="all">All Prices</div>
+      <div class="price-tab" data-col="basicSAP">Basic SAP</div>
+      <div class="price-tab" data-col="e1">E1 Price</div>
+      <div class="price-tab" data-col="zc">ZC Price</div>
+    </div>
+
+    <div class="table-outer">
+      <table id="priceTable">
+        <thead>
+          <tr>
+            <th style="width:220px">Model</th>
+            <th style="width:220px">Spec</th>
+            <th class="align-right col-basic-header" style="width:200px">Basic SAP</th>
+            <th class="align-right col-e1-header" style="width:200px">E1 Price</th>
+            <th class="align-right col-zc-header" style="width:200px">ZC Price</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-note">
+      Source: Internal SAP Pricing System &nbsp;·&nbsp; For internal use only &nbsp;·&nbsp;
+      Last updated: <span id="lastUpdated">03 June 2026</span>
+    </div>
+    <div class="footer-brand">
+      <img src="Trakindo_Logo.png" alt="Trakindo CAT" class="footer-trakindo-logo" />
+      <span class="footer-slogan">ADVANCING <span>YOU</span> FORWARD®</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── DATA ──────────────────────────────────────────────────
+       To update prices: edit values below, then push to GitHub.
+       Or use ?edit=1 in URL for in-browser editing.
+    ──────────────────────────────────────────────────────────── */
+    const DEFAULT_DATA = {
+      pricingDate: "03 June 2026",
+      lastUpdated: "03 June 2026",
+      products: [
+        { id:"30009572",  model:"DE110GC",  kw:"88 kW",   spec:"400V · 50Hz · S SF T",     basicSAP:289700000,  e1:255900000,  zc:252300000  },
+        { id:"30009561",  model:"DE220GC",  kw:"176 kW",  spec:"400V · 50Hz · S SF T",     basicSAP:448300000,  e1:397500000,  zc:393800000  },
+        { id:"30010364",  model:"DE550GC",  kw:"440 kW",  spec:"400V · 50Hz · S OP T",     basicSAP:1024100000, e1:905100000,  zc:913500000  },
+        { id:"30010396",  model:"DE1100GC", kw:"880 kW",  spec:"400V · 50Hz · S OP ANB-IN",basicSAP:3031300000, e1:2698700000, zc:2658200000 }
+      ]
+    };
+
+    function loadData() {
+      try { const s = localStorage.getItem('ptd_v2'); if (s) return JSON.parse(s); } catch(e){}
+      return JSON.parse(JSON.stringify(DEFAULT_DATA));
+    }
+    function saveDataStore(d) { localStorage.setItem('ptd_v2', JSON.stringify(d)); }
+    function fmt(n) { return Number(n).toLocaleString('id-ID'); }
+
+    let currentData = loadData();
+    let editMode = false;
+    let activeTab = 'all';
+
+    // Tab switching
+    document.getElementById('priceTabs').addEventListener('click', e => {
+      const tab = e.target.closest('.price-tab');
+      if (!tab) return;
+      document.querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeTab = tab.dataset.col;
+      render(currentData);
+    });
+
+    function render(data) {
+      document.getElementById('pricingDate').textContent = data.pricingDate;
+      document.getElementById('lastUpdated').textContent = data.lastUpdated;
+
+      // Header highlight
+      const hBasic = document.querySelector('.col-basic-header');
+      const hE1    = document.querySelector('.col-e1-header');
+      const hZC    = document.querySelector('.col-zc-header');
+      [hBasic, hE1, hZC].forEach(h => h && h.classList.remove('col-active-header'));
+      if (activeTab === 'basicSAP') hBasic && hBasic.classList.add('col-active-header');
+      if (activeTab === 'e1')       hE1    && hE1.classList.add('col-active-header');
+      if (activeTab === 'zc')       hZC    && hZC.classList.add('col-active-header');
+
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = data.products.map((p, i) => {
+        const activeBasic = activeTab === 'basicSAP' ? 'col-active' : '';
+        const activeE1    = activeTab === 'e1'       ? 'col-active' : '';
+        const activeZC    = activeTab === 'zc'       ? 'col-active' : '';
+        return `
+          <tr>
+            <td>
+              <div class="cell-model">
+                <div class="model-info">
+                  <div class="model-name">${p.model}</div>
+                  <div class="model-id">Product ID: ${p.id}</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="cell-spec">
+                <span class="spec-kw">${p.kw}</span>
+                <span class="spec-detail">${p.spec}</span>
+              </div>
+            </td>
+            <td class="align-right ${activeBasic}" data-idx="${i}" data-field="basicSAP">
+              <div class="price-wrap">
+                <span class="price-currency">IDR</span>
+                <span class="price-value">${fmt(p.basicSAP)}</span>
+              </div>
+            </td>
+            <td class="align-right ${activeE1}" data-idx="${i}" data-field="e1">
+              <div class="price-wrap">
+                <span class="price-currency">IDR</span>
+                <span class="price-value is-highlighted">${fmt(p.e1)}</span>
+              </div>
+            </td>
+            <td class="align-right ${activeZC}" data-idx="${i}" data-field="zc">
+              <div class="price-wrap">
+                <span class="price-currency">IDR</span>
+                <span class="price-value">${fmt(p.zc)}</span>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      if (editMode) attachEditListeners();
+    }
+
+    /* ── EDIT MODE ── */
+    function checkEditMode() {
+      if (new URLSearchParams(window.location.search).get('edit') === '1') {
+        editMode = true;
+        document.getElementById('editBanner').classList.add('visible');
+      }
+    }
+
+    function attachEditListeners() {
+      document.querySelectorAll('td[data-field]').forEach(cell => {
+        cell.style.cursor = 'pointer';
+        cell.title = 'Klik untuk edit harga';
+        cell.onclick = function() {
+          const idx = +this.dataset.idx;
+          const field = this.dataset.field;
+          const cur = currentData.products[idx][field];
+          const label = { basicSAP:'Basic SAP', e1:'E1 Price', zc:'ZC Price' }[field];
+          const val = prompt(`${currentData.products[idx].model} — ${label}\nMasukkan harga baru (angka saja, tanpa titik):`, cur);
+          if (val !== null && !isNaN(+val) && +val > 0) {
+            currentData.products[idx][field] = +val;
+            render(currentData);
+          }
+        };
+      });
+      document.getElementById('pricingDate').style.cursor = 'pointer';
+      document.getElementById('pricingDate').title = 'Klik untuk ubah tanggal';
+      document.getElementById('pricingDate').onclick = function() {
+        const v = prompt('Pricing Date (contoh: 03 June 2026):', currentData.pricingDate);
+        if (v) { currentData.pricingDate = v; currentData.lastUpdated = v; render(currentData); }
+      };
+    }
+
+    function saveEdits() {
+      saveDataStore(currentData);
+      alert('✅ Harga berhasil disimpan.');
+    }
+    function exitEdit() { window.location.href = window.location.pathname; }
+
+    /* ── PASSWORD GATE ── */
+    const PASS = 'salespws';
+    const SESSION_KEY = 'ptd_auth';
+
+    function checkPassword() {
+      const val = document.getElementById('gateInput').value;
+      if (val === PASS) {
+        sessionStorage.setItem(SESSION_KEY, '1');
+        document.getElementById('passwordGate').style.display = 'none';
+        document.body.classList.remove('locked');
+      } else {
+        const err = document.getElementById('gateError');
+        err.classList.add('visible');
+        document.getElementById('gateInput').value = '';
+        document.getElementById('gateInput').focus();
+        setTimeout(() => err.classList.remove('visible'), 3000);
+      }
+    }
+
+    function togglePwVisibility() {
+      const inp = document.getElementById('gateInput');
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+    }
+
+    function initGate() {
+      if (sessionStorage.getItem(SESSION_KEY) === '1') {
+        document.getElementById('passwordGate').style.display = 'none';
+        document.body.classList.remove('locked');
+      } else {
+        document.body.classList.add('locked');
+        setTimeout(() => document.getElementById('gateInput').focus(), 100);
+      }
+    }
+
+    initGate();
+
+    /* ── MAIN INIT ── */
+    checkEditMode();
+    render(currentData);
+  </script>
+</body>
+</html>
