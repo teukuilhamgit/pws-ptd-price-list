@@ -581,7 +581,7 @@
       </div>
       <div class="header-date-pill">
         <span class="date-label">Pricing Date</span>
-        <span class="date-value" id="pricingDate">03 June 2026</span>
+        <span class="date-value" id="pricingDate">09 june 2026</span>
       </div>
     </div>
   </header>
@@ -628,7 +628,7 @@
   <footer class="page-footer">
     <div class="footer-note">
       Source: Internal SAP Pricing System &nbsp;·&nbsp; For internal use only &nbsp;·&nbsp;
-      Last updated: <span id="lastUpdated">03 June 2026</span>
+      Last updated: <span id="lastUpdated">09 june 2026</span>
     </div>
     <div class="footer-brand">
       <img src="Trakindo_Logo.png" alt="Trakindo CAT" class="footer-trakindo-logo" />
@@ -642,8 +642,8 @@
        Or use ?edit=1 in URL for in-browser editing.
     ──────────────────────────────────────────────────────────── */
     const DEFAULT_DATA = {
-      pricingDate: "03 June 2026",
-      lastUpdated: "03 June 2026",
+      pricingDate: "09 june 2026",
+      lastUpdated: "09 june 2026",
       products: [
         { id:"30009572",  model:"DE110GC",  kw:"88 kW",   spec:"400V · 50Hz · S SF T",     basicSAP:294600000,  e1:266300000,  zc:262500000  },
         { id:"30009561",  model:"DE220GC",  kw:"176 kW",  spec:"400V · 50Hz · S SF T",     basicSAP:455900000,  e1:413600000,  zc:409800000  },
@@ -759,7 +759,7 @@
       document.getElementById('pricingDate').style.cursor = 'pointer';
       document.getElementById('pricingDate').title = 'Klik untuk ubah tanggal';
       document.getElementById('pricingDate').onclick = function() {
-        const v = prompt('Pricing Date (contoh: 03 June 2026):', currentData.pricingDate);
+        const v = prompt('Pricing Date (contoh: 09 june 2026):', currentData.pricingDate);
         if (v) { currentData.pricingDate = v; currentData.lastUpdated = v; render(currentData); }
       };
     }
